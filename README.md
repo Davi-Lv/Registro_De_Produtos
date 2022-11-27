@@ -3,7 +3,7 @@
 ### registra um produto com os inputs
 - Nome
 - Preço
-- Imagem
+- Umna imagem
 
 ### o produto aparece em uma lista logo abaixo com as fuções
 - apagar 

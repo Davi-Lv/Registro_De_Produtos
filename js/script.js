@@ -42,7 +42,7 @@ class Produto {
             td_acoes.classList.add('center');
 
             let imgEdit = document.createElement('img');
-            imgEdit.src = 'img/editar.png';
+            imgEdit.src = 'img/editar.svg';
             imgEdit.setAttribute("onClick", "produto.edicao("+ JSON.stringify(this.arrayProdutos[i]) +")");
 
             let imgDelete = document.createElement('img');

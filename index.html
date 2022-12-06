@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto JS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+</head>
+
+<body class='body'>
+  <header class='header'>
+    <h1>Adicioar Produtos</h1>
+  </header>
+
+  <main class='main'>
+    <div class="tittle">
+      <h2>Produtos</h2>
+      <span>Lista de Produtos</span>
+    </div>
+
+    <div class="card">
+      <div class="lineInput">
+        <label>Produto</label>
+        <input class='input' type="text" id='produto' placeholder='Nome do produto'>
+      </div>
+
+      <div class="lineInput">
+        <label>Preço</label>
+        <input class='input' type="number" id='preco' placeholder='Preco do produto'>
+      </div>
+
+      <div class="lineInput">
+        <label>Imagem</label>
+        <input class='input' name="imagem" type="file" id='imagem' accept="image/*" placeholder=''>
+        <div class="image-preview" id="imagePreview">
+          <img src="" alt="Preview da imagem" class="image-preview__image">
+          <span class="image-preview__default-text">Pre-visualizar da imagem</span>
+        </div>
+
+        <script>
+          const imagem = document.getElementById("imagem");
+          const previewContainer = document.getElementById("imagePreview");
+          const previewimage = previewContainer.querySelector(".image-preview__image");
+          const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+          imagem.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+              const reader = new FileReader();
+
+              previewDefaultText.style.display = "none";
+              previewimage.style.display = "block";
+
+              reader.addEventListener("load", function () {
+                console.log(this);
+                previewimage.setAttribute("src", this.result);
+              });
+
+              reader.readAsDataURL(file);
+            } else {
+              previewDefaultText.style.display = null;
+              previewimage.style.display = null;
+              previewimage.setAttribute("src", "");
+            }
+          });
+        </script>
+      </div>
+
+      <button class='botton' onclick="produto.salvar()" id="SalvarOuEditar">Salvar</button>
+      <button class='botton' onclick="produto.cancelar()">Cancelar</button>
+    </div>
+
+    <div class="content">
+      <table border="1">
+        <thead>
+          <th class='center'>ID</th>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Imagem</th>
+          <th class='center'>Ações</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+
+</html>

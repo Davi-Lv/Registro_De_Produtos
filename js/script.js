@@ -64,7 +64,7 @@ class Produto {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
             if(this.arrayProdutos[i].id == id){
                 this.arrayProdutos[i].nomeProduto = produto.nomeProduto;
-                this.arrayProdutos[i].preco = produto.precoProduto;
+                this.arrayProdutos[i].precoProduto = produto.precoProduto;
             }
         }
     }
@@ -127,7 +127,7 @@ class Produto {
 
     deletar(id) {
 
-        if(confirm('Deseja Deletar o produto com ID '+ id)){
+        if(confirm('Deseja Deletar o produto com ID ' + id)){
             let tbody = document.getElementById('tbody');
 
             for(let i = 0; i < this.arrayProdutos.length; i++) {
@@ -137,8 +137,6 @@ class Produto {
                 }
             }
         }
-
     }
-
 }
 var produto = new Produto();

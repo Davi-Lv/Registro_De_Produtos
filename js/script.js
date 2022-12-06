@@ -64,7 +64,7 @@ class Produto {
         for (let i = 0; i < this.arrayProdutos.length; i++) {
             if(this.arrayProdutos[i].id == id){
                 this.arrayProdutos[i].nomeProduto = produto.nomeProduto;
-                this.arrayProdutos[i].preco = produto.precoProduto;
+                this.arrayProdutos[i].precoProduto = produto.precoProduto;
             }
         }
     }
